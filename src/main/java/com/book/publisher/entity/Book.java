@@ -20,7 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Book extends BaseEntity{
     @Id @GeneratedValue
-    @Column(name = "book_id")
+    @Column(name = "BOOK_ID")
     private long id;
 
     private String bookTitle;
@@ -39,7 +39,6 @@ public class Book extends BaseEntity{
 
     // 수량
     private int stockQuantity;
-
     @Builder
     public Book(String bookTitle, String subTitle, int price, String author, LocalDate publishDate, int stockQuantity) {
         this.bookTitle = bookTitle;

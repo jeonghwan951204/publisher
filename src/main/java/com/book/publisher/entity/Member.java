@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 public class Member extends BaseEntity{
 
     @Id @GeneratedValue
-    @Column(name = "member_id")
+    @Column(name = "MEMBER_ID")
     private Long id;
 
     private String name;
@@ -46,4 +46,5 @@ public class Member extends BaseEntity{
     public void setAddress(Address address) {
         this.address = address;
     }
+
 }

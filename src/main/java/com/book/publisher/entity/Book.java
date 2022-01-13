@@ -1,6 +1,7 @@
 package com.book.publisher.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,11 @@ import java.util.Date;
 @DynamicInsert
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
-public class Book {
+@AllArgsConstructor
+@Builder
+public class Book extends BaseEntity{
     @Id @GeneratedValue
-    @Column(name = "book_id")
+    @Column(name = "BOOK_ID")
     private long id;
 
     private String bookTitle;
@@ -33,16 +36,6 @@ public class Book {
     @DateTimeFormat(pattern = "YYYY-MM-DD")
     private LocalDate publishDate;
 
-    @CreatedDate
-    @Column(columnDefinition = "timestamp(0)")
-    private Date regDt;
+    private String category;
 
-    @Builder
-    public Book(String bookTitle, String subTitle, int price, String author, LocalDate publishDate) {
-        this.bookTitle = bookTitle;
-        this.subTitle = subTitle;
-        this.price = price;
-        this.author = author;
-        this.publishDate = publishDate;
-    }
 }
